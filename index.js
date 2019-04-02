@@ -25,7 +25,7 @@ let direction = null
 let speed = 5
 
 // Have someone at your table do some research on  setInterval- what is it doing?
-setInterval(function(){
+setInterval(function () {
 
     // character.style.left / bottom are both strings: "0px"
     // If we want to do some arithmatic, we'll need to parse them into integers:
@@ -34,8 +34,20 @@ setInterval(function(){
 
     // If the character is moving right, the distance between him and the left side of the screen should increase
     // What is speed?
-    if(direction == 'right'){
+    if (direction == 'right') {
         character.style.left = `${left+speed}px`
+    }
+
+    if (direction == 'left') {
+        character.style.left = `${left-speed}px`
+    }
+
+    if (direction == 'up') {
+        character.style.bottom = `${bottom+speed}px`
+    }
+
+    if (direction == 'down') {
+        character.style.bottom = `${bottom-speed}px`
     }
 
     // Account for other directions here:
@@ -45,7 +57,7 @@ setInterval(function(){
 // When we want to start walking a given direction, let's change: 
 //  1. The characters gif.
 //  2. The value of the direction variable. How will this effect the setInterval loop above?
-function walkRight(){
+function walkRight() {
     character.src = `${ASSET_ROOT}/walkright.gif`
     direction = 'right'
 }
@@ -53,19 +65,23 @@ function walkRight(){
 
 // Finish the functions below:
 
-function walkLeft(){
+function walkLeft() {
+    character.src = `${ASSET_ROOT}/walkleft.gif`
+    direction = 'left'
+}
+
+function walkUp() {
+    character.src = `${ASSET_ROOT}/walkup.gif`
+    direction = 'up'
+}
+
+function walkDown() {
+    character.src = `${ASSET_ROOT}/walkdown.gif`
+    direction = 'down'
 
 }
 
-function walkUp(){
-
-}
-
-function walkDown(){
-
-}
-
-function stop(){
+function stop() {
     character.src = `${ASSET_ROOT}/static.gif`
     direction = null
 }
